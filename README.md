@@ -2,6 +2,8 @@
 
 > Simple personal task tracking tool.
 
+![screenshot](https://github.com/ioplker/metrack/blob/master/screen.png)
+
 ## Build Setup
 
 ``` bash
