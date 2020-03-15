@@ -47,17 +47,22 @@ Vue.filter('hoursAndMinutes', milliseconds => {
   let hoursText = '';
   let minutesText = '';
 
-  let lastDigit = hours % 10;
-  if(lastDigit === 1) {
-    hoursText = 'час';
-  } else if ([2, 3, 4].includes(lastDigit)) {
-    hoursText = 'часа';
-  } else if ([5, 6, 7, 8, 9, 0].includes(lastDigit)) {
+  let preLastDigit = Math.floor((hours % 100) / 10);
+  if (preLastDigit === 1) {
     hoursText = 'часов';
+  } else {
+    let lastDigit = hours % 10;
+    if(lastDigit === 1) {
+      hoursText = 'час';
+    } else if ([2, 3, 4].includes(lastDigit)) {
+      hoursText = 'часа';
+    } else if ([5, 6, 7, 8, 9, 0].includes(lastDigit)) {
+      hoursText = 'часов';
+    }
   }
   hoursText = hours === 0 ? '' : `${hours} ${hoursText}`;
 
-  const preLastDigit = Math.floor((minutes % 100) / 10);
+  preLastDigit = Math.floor((minutes % 100) / 10);
   if (preLastDigit === 1) {
     minutesText = 'минут';
   } else {
