@@ -66,7 +66,7 @@ Vue.filter('hoursAndMinutes', milliseconds => {
   if (preLastDigit === 1) {
     minutesText = 'минут';
   } else {
-    lastDigit = minutes % 10;
+    let lastDigit = minutes % 10;
     if (lastDigit === 1) {
       minutesText = 'минута';
     } else if ([2, 3, 4].includes(lastDigit)) {
